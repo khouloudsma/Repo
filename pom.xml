@@ -1,0 +1,86 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.esprit</groupId>
+	<artifactId>maven-web</artifactId>
+	<version>1.0</version>
+	<packaging>war</packaging>
+	<name>maven-web</name>
+	<description>maven-web</description>
+ 
+	<properties>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<altDeploymentRepository>local-nexus::default::http://localhost:8086/repository/nexus-snapshot/</altDeploymentRepository>
+
+	</properties>
+
+	<distributionManagement>
+		<repository>
+			<id>nexus-release</id>
+			<name>releases</name>
+			<url>http://localhost:8086/repository/nexus-release/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+
+		<snapshotRepository>
+			<id>nexus-snapshot</id>
+			<name>snapshots</name>
+			<url>http://localhost:8086/repository/nexus-snapshot/</url>
+		</snapshotRepository>
+	</distributionManagement>
+	<build>
+	  <plugins>
+
+		<plugin>
+   			<artifactId>maven-deploy-plugin</artifactId>
+   			<version>2.8.1</version>
+   			<executions>
+      				<execution>
+      				   <id>default-deploy</id>
+       				   <phase>deploy</phase>
+        			   <goals>
+            				<goal>deploy</goal>
+         			   </goals>
+      				</execution>
+  		        </executions>
+		</plugin>
+
+		<plugin>
+  		 <groupId>org.apache.maven.plugins</groupId>
+   		 <artifactId>maven-deploy-plugin</artifactId>
+  		 <version>2.8.1</version>
+  		 <configuration>
+    		  <skip>true</skip>
+   		</configuration>
+		</plugin>
+
+		<plugin>
+  		 <groupId>org.sonatype.plugins</groupId>
+  		 <artifactId>nexus-staging-maven-plugin</artifactId>
+  		 <version>1.1</version>
+  		 <executions>
+    		  <execution>
+       			  <id>default-deploy</id>
+			  <phase>deploy</phase>
+         		  <goals>
+           			 <goal>deploy</goal>
+        		  </goals>
+      		  </execution>
+   		</executions>
+   		<configuration>
+      			<nexusUrl>http://localhost:8086/</nexusUrl>
+			<serverId>nexus-snapshot</serverId>
+			<localUsername>admin</localUsername>
+            		<javaVersion>1.8.0_222</javaVersion>
+     			 <skipStaging>true</skipStaging>
+			  
+  		 </configuration>
+		</plugin>
+
+	 </plugins>
+	</build>
+ 
+</project>
