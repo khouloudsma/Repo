@@ -11,7 +11,7 @@
 	<properties>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
-		<altDeploymentRepository>local-nexus::default::http://172.17.0.1:8086/repository/nexus-snapshot/</altDeploymentRepository>
+		<altDeploymentRepository>local-nexus::default::http://localhost:8086/repository/nexus-snapshot/</altDeploymentRepository>
 
 	</properties>
 
@@ -19,7 +19,7 @@
 		<repository>
 			<id>nexus-release</id>
 			<name>releases</name>
-			<url>http://172.17.0.1:8086/repository/nexus-release/</url>
+			<url>http://localhost:8086/repository/nexus-release/</url>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
@@ -28,7 +28,7 @@
 		<snapshotRepository>
 			<id>nexus-snapshot</id>
 			<name>snapshots</name>
-			<url>http://172.17.0.1:8086/repository/nexus-snapshot/</url>
+			<url>http://localhost:8086/repository/nexus-snapshot/</url>
 		</snapshotRepository>
 	</distributionManagement>
 	<build>
@@ -71,7 +71,7 @@
       		  </execution>
    		</executions>
    		<configuration>
-      			<nexusUrl>http://172.17.0.1:8086/</nexusUrl>
+      			<nexusUrl>http://localhost:8086/</nexusUrl>
 			<serverId>nexus-snapshot</serverId>
 			<localUsername>admin</localUsername>
             		<javaVersion>1.8.0_222</javaVersion>
