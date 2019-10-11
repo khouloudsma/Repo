@@ -71,7 +71,7 @@
       		  </execution>
    		</executions>
    		<configuration>
-      			<nexusUrl>http://localhost:8086/</nexusUrl>
+      			<nexusUrl>http://172.17.0.1:8086/</nexusUrl>
 			<serverId>nexus-snapshot</serverId>
 			<localUsername>admin</localUsername>
             		<javaVersion>1.8.0_222</javaVersion>
