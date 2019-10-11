@@ -19,7 +19,7 @@
 		<repository>
 			<id>nexus-release</id>
 			<name>releases</name>
-			<url>http://localhost:8086/repository/nexus-release/</url>
+			<url>http://172.17.0.1:8086/repository/nexus-release/</url>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
@@ -28,7 +28,7 @@
 		<snapshotRepository>
 			<id>nexus-snapshot</id>
 			<name>snapshots</name>
-			<url>http://localhost:8086/repository/nexus-snapshot/</url>
+			<url>http://172.17.0.1:8086/repository/nexus-snapshot/</url>
 		</snapshotRepository>
 	</distributionManagement>
 	<build>
